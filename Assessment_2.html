@@ -1,0 +1,2843 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ATI RN Nursing Exam Comprehensive Study Guide - EXAM MODE</title>
+        <style>
+                :root {
+                        --dark: #0d2b6b;
+                        --mid: #1a4ba8;
+                        --accent: #ffd700;
+                        --bg: #eef3ff;
+                        --border: #b8ccf0;
+                        --hover: #d8e6ff;
+                        --nav: #c0d0f0;
+                        --rat-bg: #dce8ff;
+                        --rat-border: #1a4ba8;
+                        --text: #061840;
+                }
+
+                * {
+                        box-sizing: border-box;
+                        margin: 0;
+                        padding: 0;
+                        font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+                }
+
+                body {
+                        background: linear-gradient(145deg, var(--dark), var(--mid));
+                        height: 100vh;
+                        width: 100vw;
+                        overflow: hidden;
+                }
+
+                .container {
+                        width: 100vw;
+                        height: 100vh;
+                        background: var(--bg);
+                        display: flex;
+                        flex-direction: column;
+                        box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+                        transition: background 0.4s;
+                }
+
+                .header {
+                        background: linear-gradient(145deg, var(--dark), var(--mid));
+                        color: white;
+                        padding: 12px 24px;
+                        flex-shrink: 0;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        height: 70px;
+                        border-bottom: 4px solid var(--accent);
+                        transition: background 0.4s, border-color 0.4s;
+                }
+
+                .header h1 {
+                        font-size: 1.4rem;
+                        font-weight: 700;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                }
+
+                .header h1 span {
+                        background: var(--accent);
+                        color: var(--dark);
+                        font-size: 0.9rem;
+                        padding: 4px 12px;
+                        border-radius: 40px;
+                        font-weight: 600;
+                }
+
+                .subtitle {
+                        font-size: 0.85rem;
+                        opacity: 0.9;
+                        margin-top: 2px;
+                }
+
+                .counter {
+                        background: rgba(255, 255, 255, 0.15);
+                        padding: 6px 20px;
+                        border-radius: 60px;
+                        font-weight: 700;
+                        font-size: 1.1rem;
+                        border: 2px solid var(--accent);
+                }
+
+                .progress-container {
+                        width: 100%;
+                        height: 6px;
+                        background: var(--border);
+                        flex-shrink: 0;
+                }
+
+                .progress-bar {
+                        background: linear-gradient(90deg, var(--accent), var(--mid));
+                        height: 100%;
+                        width: 0%;
+                        transition: width 0.3s;
+                }
+
+                .main-content {
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        overflow: hidden;
+                        padding: 16px 24px;
+                        background: var(--bg);
+                        transition: background 0.4s;
+                }
+
+                .assessment-indicator {
+                        background: #fff;
+                        padding: 6px 18px;
+                        border-radius: 60px;
+                        display: inline-block;
+                        align-self: flex-start;
+                        margin-bottom: 12px;
+                        font-weight: 600;
+                        font-size: 0.9rem;
+                        color: var(--dark);
+                        border: 2px solid var(--accent);
+                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                        transition: border-color 0.4s, color 0.4s;
+                }
+
+                .assessment-indicator i {
+                        background: var(--dark);
+                        color: white;
+                        padding: 2px 10px;
+                        border-radius: 40px;
+                        margin-right: 10px;
+                        font-style: normal;
+                        transition: background 0.4s;
+                }
+
+                .badge {
+                        background: var(--accent);
+                        color: var(--dark);
+                        font-size: 0.75rem;
+                        padding: 3px 8px;
+                        border-radius: 20px;
+                        margin-left: 10px;
+                        font-weight: 600;
+                }
+
+                .question-area {
+                        flex: 1;
+                        background: white;
+                        border-radius: 24px;
+                        padding: 20px;
+                        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                        border: 2px solid var(--accent);
+                        overflow-y: auto;
+                        margin-bottom: 12px;
+                        display: flex;
+                        flex-direction: column;
+                        transition: border-color 0.4s;
+                }
+
+                .question-header {
+                        display: flex;
+                        gap: 15px;
+                        align-items: flex-start;
+                        margin-bottom: 20px;
+                }
+
+                .question-number {
+                        background: linear-gradient(145deg, var(--dark), var(--mid));
+                        color: white;
+                        width: 45px;
+                        height: 45px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 1.3rem;
+                        font-weight: bold;
+                        flex-shrink: 0;
+                        border: 2px solid var(--accent);
+                        transition: background 0.4s, border-color 0.4s;
+                }
+
+                .question-text {
+                        font-size: 1.2rem;
+                        line-height: 1.5;
+                        color: var(--text);
+                        font-weight: 600;
+                        flex: 1;
+                        transition: color 0.4s;
+                }
+
+                .options-container {
+                        display: grid;
+                        gap: 12px;
+                        margin-bottom: 12px;
+                }
+
+                .option {
+                        padding: 14px 18px;
+                        border: 2px solid var(--border);
+                        border-radius: 18px;
+                        cursor: pointer;
+                        transition: all 0.15s;
+                        background: white;
+                        display: flex;
+                        align-items: center;
+                        gap: 16px;
+                        font-size: 1rem;
+                }
+
+                .option:hover {
+                        background: var(--hover);
+                        border-color: var(--mid);
+                }
+
+                .option-letter {
+                        background: linear-gradient(145deg, var(--mid), var(--dark));
+                        color: white;
+                        width: 36px;
+                        height: 36px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-weight: bold;
+                        font-size: 1rem;
+                        flex-shrink: 0;
+                        border: 2px solid var(--accent);
+                        transition: all 0.15s;
+                }
+
+                .option.selected {
+                        background: #fffde7;
+                        border-color: var(--accent);
+                }
+
+                .option.selected .option-letter {
+                        background: var(--accent);
+                        color: var(--dark);
+                        border-color: var(--dark);
+                }
+
+                .option.correct {
+                        background: #c8e6c9;
+                        border-color: #2e7d32;
+                }
+
+                .option.correct .option-letter {
+                        background: #2e7d32;
+                        border-color: #1b5e20;
+                        color: white;
+                }
+
+                .option.incorrect {
+                        background: #ffcdd2;
+                        border-color: #c62828;
+                }
+
+                .option.incorrect .option-letter {
+                        background: #c62828;
+                        border-color: #8e1a1a;
+                        color: white;
+                }
+
+                .result-tag {
+                        display: inline-block;
+                        padding: 3px 12px;
+                        border-radius: 30px;
+                        font-size: 0.85rem;
+                        font-weight: 600;
+                        margin-left: 12px;
+                }
+
+                .result-tag.correct {
+                        background: #c8e6c9;
+                        color: #1b5e20;
+                        border: 1px solid #2e7d32;
+                }
+
+                .result-tag.incorrect {
+                        background: #ffcdd2;
+                        color: #b71c1c;
+                        border: 1px solid #c62828;
+                }
+
+                .rationale-bar {
+                        display: none;
+                        background: var(--rat-bg);
+                        border: 2px solid var(--rat-border);
+                        border-radius: 16px;
+                        padding: 14px 20px;
+                        margin-top: 12px;
+                        font-size: 1rem;
+                        color: var(--text);
+                        line-height: 1.6;
+                        flex-shrink: 0;
+                        animation: slideIn 0.2s ease;
+                        transition: background 0.4s, border-color 0.4s;
+                }
+
+                .rationale-bar.show {
+                        display: block;
+                }
+
+                .rationale-bar strong {
+                        display: block;
+                        color: var(--dark);
+                        font-size: 0.82rem;
+                        text-transform: uppercase;
+                        letter-spacing: 0.06em;
+                        margin-bottom: 6px;
+                        opacity: 0.75;
+                }
+
+                .selected-indicator {
+                        font-size: 0.85rem;
+                        color: var(--mid);
+                        margin-bottom: 6px;
+                }
+
+                .navigation {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 10px 20px;
+                        background: var(--nav);
+                        border-top: 2px solid var(--accent);
+                        flex-shrink: 0;
+                        height: 65px;
+                        transition: background 0.4s, border-color 0.4s;
+                }
+
+                .nav-buttons {
+                        display: flex;
+                        gap: 12px;
+                }
+
+                .btn {
+                        padding: 10px 24px;
+                        border: none;
+                        border-radius: 50px;
+                        cursor: pointer;
+                        font-weight: 600;
+                        transition: all 0.15s;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        font-size: 0.95rem;
+                        white-space: nowrap;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+                }
+
+                .btn-primary {
+                        background: linear-gradient(145deg, var(--mid), var(--dark));
+                        color: white;
+                }
+
+                .btn-primary:hover:not(:disabled) {
+                        transform: translateY(-2px);
+                        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+                }
+
+                .btn-secondary {
+                        background: linear-gradient(145deg, var(--mid), var(--dark));
+                        color: white;
+                        opacity: 0.85;
+                }
+
+                .btn-secondary:hover:not(:disabled) {
+                        transform: translateY(-2px);
+                        opacity: 1;
+                }
+
+                .btn-random {
+                        background: linear-gradient(145deg, var(--accent), #c8a000);
+                        color: var(--dark);
+                }
+
+                .btn-random:hover:not(:disabled) {
+                        transform: translateY(-2px);
+                }
+
+                .btn-assessment {
+                        background: white;
+                        color: var(--dark);
+                        border: 2px solid var(--accent);
+                }
+
+                .btn-assessment:hover {
+                        background: var(--hover);
+                        transform: translateY(-2px);
+                }
+
+                .btn-skip {
+                        background: white;
+                        color: var(--dark);
+                        border: 2px solid var(--border);
+                        margin-right: 8px;
+                }
+
+                .btn-skip:hover:not(:disabled) {
+                        background: var(--hover);
+                        transform: translateY(-2px);
+                        border-color: var(--mid);
+                }
+
+                .btn-cancel {
+                        background: linear-gradient(145deg, #ef9a9a, #e57373);
+                        color: white;
+                        display: none;
+                }
+
+                .btn-cancel.show {
+                        display: flex;
+                }
+
+                .btn:disabled {
+                        opacity: 0.4;
+                        cursor: not-allowed;
+                        transform: none !important;
+                }
+
+                .modal-overlay {
+                        display: none;
+                        position: fixed;
+                        inset: 0;
+                        background: rgba(0, 0, 0, 0.55);
+                        z-index: 200;
+                        align-items: center;
+                        justify-content: center;
+                        backdrop-filter: blur(3px);
+                }
+
+                .modal-overlay.open {
+                        display: flex;
+                }
+
+                .modal {
+                        background: white;
+                        border-radius: 28px;
+                        width: min(92vw, 700px);
+                        height: 88vh;
+                        display: flex;
+                        flex-direction: column;
+                        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+                        overflow: hidden;
+                        animation: modalPop 0.2s ease;
+                }
+
+                .modal-header {
+                        background: linear-gradient(145deg, var(--dark), var(--mid));
+                        color: white;
+                        padding: 18px 24px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        border-bottom: 3px solid var(--accent);
+                        flex-shrink: 0;
+                }
+
+                .modal-header h2 {
+                        font-size: 1.15rem;
+                        font-weight: 700;
+                }
+
+                .modal-close {
+                        background: rgba(255, 255, 255, 0.2);
+                        border: none;
+                        color: white;
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        font-size: 1.1rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: background 0.15s;
+                }
+
+                .modal-close:hover {
+                        background: rgba(255, 255, 255, 0.4);
+                }
+
+                .modal-search {
+                        padding: 14px 20px;
+                        border-bottom: 1px solid #eee;
+                        flex-shrink: 0;
+                }
+
+                .modal-search input {
+                        width: 100%;
+                        padding: 9px 16px;
+                        border: 2px solid var(--border);
+                        border-radius: 50px;
+                        font-size: 0.95rem;
+                        outline: none;
+                        transition: border-color 0.15s;
+                }
+
+                .modal-search input:focus {
+                        border-color: var(--mid);
+                }
+
+                .modal-body {
+                        flex: 1;
+                        overflow-y: auto;
+                        padding: 16px 20px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        min-height: 0;
+                }
+
+                .as-card {
+                        border: 2px solid #e0e0e0;
+                        border-radius: 16px;
+                        padding: 12px 16px;
+                        cursor: pointer;
+                        transition: all 0.15s;
+                        display: flex;
+                        align-items: center;
+                        gap: 12px;
+                        background: white;
+                }
+
+                .as-card:hover {
+                        border-color: var(--mid);
+                        background: var(--hover);
+                        transform: translateY(-2px);
+                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                }
+
+                .as-card.active {
+                        border-color: var(--accent);
+                        background: #fffde7;
+                }
+
+                .as-card.hidden {
+                        display: none !important;
+                }
+
+                .as-num {
+                        background: linear-gradient(145deg, var(--dark), var(--mid));
+                        color: white;
+                        width: 38px;
+                        height: 38px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-weight: 700;
+                        font-size: 0.9rem;
+                        flex-shrink: 0;
+                        border: 2px solid var(--accent);
+                }
+
+                .as-info {
+                        flex: 1;
+                        min-width: 0;
+                }
+
+                .as-title {
+                        font-weight: 600;
+                        font-size: 0.82rem;
+                        color: #333;
+                        line-height: 1.3;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                }
+
+                .as-count {
+                        font-size: 0.72rem;
+                        color: #888;
+                        margin-top: 2px;
+                }
+
+                @keyframes slideIn {
+                        from {
+                                opacity: 0;
+                                transform: translateY(6px);
+                        }
+
+                        to {
+                                opacity: 1;
+                                transform: translateY(0);
+                        }
+                }
+
+                @keyframes modalPop {
+                        from {
+                                opacity: 0;
+                                transform: scale(0.92) translateY(20px);
+                        }
+
+                        to {
+                                opacity: 1;
+                                transform: scale(1) translateY(0);
+                        }
+                }
+        </style>
+</head>
+
+<body>
+        <div class="container">
+                <div class="header">
+                        <div>
+                                <h1>🩺 ATI RN Nursing Exam Comprehensive Study Guide <span>EXAM MODE</span></h1>
+                                <div class="subtitle">66 questions &middot; ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales</div>
+                        </div>
+                        <div class="counter" id="counter">1/66</div>
+                </div>
+                <div class="progress-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <div class="main-content">
+                        <div class="assessment-indicator" id="assessmentDisplay">
+                                <i id="assessmentIcon">📘</i>
+                                <span id="assessmentName">ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales</span>
+                                <span class="badge" id="qTypeBadge">Single</span>
+                                <span id="resultTag" class="result-tag"></span>
+                        </div>
+                        <div class="question-area">
+                                <div class="question-header">
+                                        <div class="question-number" id="questionNumber">1</div>
+                                        <div class="question-text" id="question"></div>
+                                </div>
+                                <div class="options-container" id="options"></div>
+                                <div id="selectedCount" class="selected-indicator"></div>
+                                <div class="rationale-bar" id="rationaleBar"><strong>💡 Rationale:</strong><span
+                                                id="rationaleText"></span></div>
+                        </div>
+                </div>
+                <div class="navigation">
+                        <div style="display:flex;gap:12px;">
+                                <button class="btn btn-secondary" id="prevBtn" onclick="previousCard()">← Prev</button>
+                                <button class="btn btn-random" onclick="randomCard()">🎲 Random</button>
+                                <button class="btn btn-assessment" onclick="openAssessmentModal()">📚
+                                        Assessment</button>
+                        </div>
+                        <div class="nav-buttons">
+                                <button class="btn btn-cancel" id="cancelBtn" onclick="cancelSelection()">✕
+                                        Clear</button>
+                                <button class="btn btn-skip" id="skipBtn" onclick="skipCard()">⏭ Skip</button>
+                                <button class="btn btn-primary" id="nextBtn" onclick="nextCard()">Next →</button>
+                        </div>
+                </div>
+        </div>
+
+        <div class="modal-overlay" id="chapterModal">
+                <div class="modal">
+                        <div class="modal-header">
+                                <h2>📚 Select a Assessment</h2>
+                                <button class="modal-close" onclick="closeAssessmentModal()">✕</button>
+                        </div>
+                        <div class="modal-search">
+                                <input type="text" id="chSearch" placeholder="🔍  Search chapters..."
+                                        oninput="filterAssessments(this.value)" />
+                        </div>
+                        <div class="modal-body" id="assessmentGrid"></div>
+                </div>
+        </div>
+
+        <script>
+                (function () {
+                        var currentQuestion = 0;
+                        var selectedOptions = [];
+                        var answered = false;
+
+                        var questions = [
+    {
+        "q": "A nurse in a provider's office is caring for a client. Based on the client's data, which of the following conditions is the client at greatest risk for developing? (Select all that apply.)** *Client Data: Medical/Surgical History: Tonsillectomy age 5, Gravida 0. Family History: Parent hypertension, prostate hypertrophy (father); diabetes, cataract, hyperthyroid (mother). Tobacco: Occasional vape. Medications: None. BP 136/85 mm Hg, BMI 38.8, hematocrit 36%, hemoglobin 10.1 g/dL.",
+        "opts": [
+            "Anemia",
+            "Hyperthyroidism",
+            "Hypertension",
+            "Malnutrition",
+            "Leukemia"
+        ],
+        "correct": [
+            0,
+            2
+        ],
+        "rat": "** Anemia is indicated by the client's hemoglobin of 10.1 g/dL, which is below the normal reference range of 12-16 g/dL for females. The hematocrit of 36% is also slightly low. Hypertension is indicated by the blood pressure of 136/85 mm Hg, which falls into the elevated to stage 1 hypertension range. This risk is compounded by a BMI of 38.8, which classifies the client as obese and increases cardiovascular risk. Hyperthyroidism is not indicated as the client would have a normal TSH level. Malnutrition is not indicated as the client is overweight. Leukemia is unlikely given normal WBC and platelet counts.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 1
+    },
+    {
+        "q": "A nurse on an oncology unit is caring for a client admitted for radiation and chemotherapy for endometrial cancer. Which of the following findings support the diagnosis of radiation gastroenteritis? (Select all that apply.)",
+        "opts": [
+            "Nausea",
+            "Steatorrhea",
+            "Constipation",
+            "Abdominal pain",
+            "Hyperuricemia"
+        ],
+        "correct": [
+            0,
+            1,
+            3
+        ],
+        "rat": "** Radiation gastroenteritis is caused by radiation damage to the small bowel, commonly occurring with pelvic radiation therapy for endometrial cancer. Nausea results from inflammation and irritation of the gastrointestinal tract. Steatorrhea, or fatty stools, indicates malabsorption due to radiation-induced damage to the intestinal lining. Abdominal pain occurs from inflammation and cramping of the bowel. Constipation is not typical; diarrhea is more common. Hyperuricemia is associated with tumor lysis syndrome, not radiation gastroenteritis.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 2
+    },
+    {
+        "q": "A nurse in a clinic is caring for a 5-year-old preschooler. Which of the following findings require follow-up by the nurse? (Select all that apply.)",
+        "opts": [
+            "Refuses all dairy products",
+            "Legs are bowed bilaterally",
+            "Vitamin D level 5 ng/mL",
+            "Eats chicken nuggets occasionally",
+            "Unable to bear weight on legs when walking"
+        ],
+        "correct": [
+            0,
+            1,
+            2,
+            4
+        ],
+        "rat": "** Refusal of all dairy products requires follow-up because dairy provides calcium and vitamin D; prolonged avoidance can lead to nutritional deficiencies. Bowed legs bilaterally is a classic sign of rickets from vitamin D deficiency, indicating impaired bone mineralization. Vitamin D level of 5 ng/mL is critically low (normal 25-80 ng/mL) and confirms severe deficiency requiring immediate intervention. Inability to bear weight on legs suggests bone pain or weakness from poor mineralization. Occasional chicken nuggets are not a concern as they do not indicate a pattern of nutritional deficit.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 3
+    },
+    {
+        "q": "A nurse on a medical-surgical unit is caring for a client post-colon resection with a colostomy. Which of the following client statements indicate an understanding of discharge teaching on nutrition? (Select all that apply.)",
+        "opts": [
+            "\"I should drink about 80 ounces of fluid per day.\"",
+            "\"I should eat a source of protein at each meal and snack.\"",
+            "\"I should chew my food thoroughly.\"",
+            "\"I should take antidiarrheal medication if my stools are semiliquid.\"",
+            "\"I will have trouble digesting food due to the colostomy.\" - **F.** \"I should eat 4 to 6 small meals per day.\" ✓ - **G.** \"I should eat high-fiber foods.\" ✓ - **H.** \"I should eat nuts for the first 2 weeks following surgery.\""
+        ],
+        "correct": [
+            0,
+            1,
+            2
+        ],
+        "rat": "** Drinking 80 ounces of fluid daily is essential for colostomies to prevent constipation and maintain hydration. Eating protein at each meal supports healing, tissue repair, and muscle maintenance after surgery. Thorough chewing reduces the risk of undigested food particles blocking the stoma. Eating 4-6 small meals promotes steady digestion and reduces gas formation. High-fiber foods regulate bowel movements and promote stool formation when reintroduced gradually. Taking antidiarrheal medication without provider direction may mask complications. A colostomy changes elimination but does not impair digestion or absorption. Nuts are difficult to digest and may cause stoma blockage during early recovery.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 4
+    },
+    {
+        "q": "A nurse is caring for a client in her first trimester who reports nausea and vomiting. Which of the following statements should the nurse include in the teaching? (Select all that apply.)",
+        "opts": [
+            "\"Small frequent snacks can help prevent a drop in glucose.\"",
+            "\"Make sure to hydrate with your meals.\"",
+            "\"It is okay if you need to skip some meals.\"",
+            "\"Hard candy is an appropriate snack.\"",
+            "\"Consume large meals to provide adequate calories.\" - **F.** \"Ginger tea may help settle your stomach.\" ✓ - **G.** \"Eat crackers before getting out of bed in the morning.\" ✓"
+        ],
+        "correct": [
+            0,
+            3
+        ],
+        "rat": "** Small frequent snacks help stabilize blood glucose levels and reduce nausea by preventing an empty stomach. Hard candy can reduce nausea by stimulating saliva production and providing a quick energy source. Ginger tea has been shown to reduce mild to moderate nausea during pregnancy and is a safe, natural remedy. Eating crackers before getting out of bed helps prevent morning sickness by avoiding an empty stomach upon waking. Hydrating with meals can increase gastric fullness and worsen nausea; fluids should be taken between meals. Skipping meals may lead to hypoglycemia and intensify nausea. Large meals distend the stomach and typically worsen nausea rather than help.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 5
+    },
+    {
+        "q": "A nurse is planning care for a client who had a stroke and is having difficulty eating. Which of the following interventions should the nurse include in the plan? (Select all that apply.)",
+        "opts": [
+            "Place the head of the client's bed to 30° for meals.",
+            "Encourage the client to chew on both sides of their mouth.",
+            "Describe food locations as if the client's plate were a clock.",
+            "Provide the client with wide-grip adaptive utensils.",
+            "Tuck the chin to the chest when swallowing."
+        ],
+        "correct": [
+            2,
+            3,
+            4
+        ],
+        "rat": "** Describing food locations using the clock method helps clients with visual field deficits such as hemianopia locate items on their plate independently. Wide-grip adaptive utensils benefit clients with impaired fine motor skills or limited hand strength. Tucking the chin to the chest (chin-tuck maneuver) helps close off the airway and directs food toward the esophagus, reducing aspiration risk. Elevating to 30° is insufficient to prevent aspiration; 90° or as high as tolerated is recommended. Chewing on both sides may increase choking risk if one side is paralyzed; focusing on the stronger side is safer.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 6
+    },
+    {
+        "q": "A nurse is caring for a client who is receiving chemotherapy treatments. The client states, \"I feel so nauseated after my treatments.\" Which of the following instructions should the nurse provide the client? (Select all that apply.)",
+        "opts": [
+            "Limit use of antiemetics until after first emesis.",
+            "Sit up for 1 hr after eating meals.",
+            "Eat foods low in carbohydrates.",
+            "Sip fluids slowly throughout the day.",
+            "Consume foods that are served cold."
+        ],
+        "correct": [
+            1,
+            3,
+            4
+        ],
+        "rat": "** Sitting upright for at least one hour after eating helps prevent gastric reflux and promotes digestion using gravity. Sipping fluids slowly throughout the day maintains hydration while avoiding discomfort from drinking large amounts at once. Cold foods generally have milder smells and are less odor-triggering than hot foods, helping reduce nausea. Antiemetics are more effective when taken prophylactically before nausea begins, not after emesis. Carbohydrates, particularly simple ones like crackers and toast, are usually better tolerated during chemotherapy-induced nausea than other food types.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 7
+    },
+    {
+        "q": "A nurse is teaching a client who has dysphagia. Which of the following instructions should the nurse include? (Select all that apply.)",
+        "opts": [
+            "\"Tilt your chin up when swallowing.\"",
+            "\"Clear your mouth with fluids after swallowing.\"",
+            "\"Rest for 30 minutes before eating.\"",
+            "\"Plan to eat three large meals a day.\"",
+            "\"Take small bites and eat slowly.\""
+        ],
+        "correct": [
+            1,
+            2,
+            4
+        ],
+        "rat": "** Clearing the mouth with fluids after swallowing helps ensure no food residues remain, reducing choking and aspiration risk. Resting before meals conserves energy, allowing the client to focus on eating safely without fatigue compromising swallowing coordination. Taking small bites and eating slowly promotes safer swallowing and reduces aspiration risk. Tilting the chin up increases aspiration risk by opening the airway; the chin-tuck maneuver is preferred. Large meals can be overwhelming and increase aspiration risk; smaller, frequent meals are recommended.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 8
+    },
+    {
+        "q": "A nurse is teaching a client who reports wanting to lose weight about behavioral modifications. Which of the following statements should the nurse include in the teaching? (Select all that apply.)",
+        "opts": [
+            "\"Make sure to drink water with your meals.\"",
+            "\"Meal replacement shakes can cause weight gain.\"",
+            "\"Your biggest meal of the day should be breakfast.\"",
+            "\"Set your weight loss goal to 2.5 pounds per week.\"",
+            "\"Keep a food diary to track what you eat.\" - **F.** \"Eat slowly and pay attention to hunger cues.\" ✓"
+        ],
+        "correct": [
+            2,
+            4
+        ],
+        "rat": "** Eating a larger breakfast can promote weight loss by jump-starting metabolism and reducing overall calorie intake later in the day. Keeping a food diary increases awareness of eating patterns and helps identify areas for improvement. Eating slowly and paying attention to hunger cues supports mindful eating and prevents overconsumption. Drinking water with meals is healthy but not the most effective behavioral focus for weight loss education. Meal replacement shakes do not inherently cause weight gain; weight gain occurs when total caloric intake exceeds expenditure. A goal of 2.5 pounds per week is too aggressive; 1-2 pounds per week is safe and sustainable.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 9
+    },
+    {
+        "q": "A nurse is providing teaching to a client who recently had a hemoglobin A1c level obtained. Which of the following statements should the nurse include in the teaching? (Select all that apply.)",
+        "opts": [
+            "\"This lab measures your average blood glucose over a 3-month period.\"",
+            "\"An increase in your hemoglobin A1c level indicates glycemic control.\"",
+            "\"This lab value is a good indicator of short-term nutritional status.\"",
+            "\"You will need to fast before getting this test.\"",
+            "\"A lower A1c level indicates better blood sugar management.\" - **F.** \"This test helps guide treatment decisions for diabetes.\" ✓"
+        ],
+        "correct": [
+            0,
+            4
+        ],
+        "rat": "** Hemoglobin A1c measures average blood glucose over the past 2-3 months by assessing glucose attached to hemoglobin in red blood cells. A lower A1c level indicates better blood sugar management and reduced risk of diabetes complications. This test helps guide treatment decisions for diabetes by showing how well current management is working. An increase in A1c indicates poor glycemic control, not improvement. The test does not assess short-term nutritional status. Fasting is not required as the result is not affected by recent food intake.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 10
+    },
+    {
+        "q": "A nurse in a long-term care facility is implementing a nutrition plan for a client who is at risk for malnutrition. Which of the following actions should the nurse include in the plan? (Select all that apply.)",
+        "opts": [
+            "Administer antiemetics following the meal.",
+            "Provide mouth care before feeding.",
+            "Assess for pain prior to mealtime.",
+            "Remove the bedpan from the client's sight.",
+            "Discourage snacks between meals. - **F.** Offer favorite foods when appetite is poor. ✓"
+        ],
+        "correct": [
+            1,
+            2,
+            3
+        ],
+        "rat": "** Mouth care before meals enhances taste perception and appetite while reducing aspiration pneumonia risk. Pain assessment before meals is vital because pain suppresses appetite and reduces ability to eat. Removing unpleasant stimuli like a visible bedpan creates a more appetizing mealtime environment. Offering favorite foods can stimulate appetite when the client is reluctant to eat. Antiemetics should be given before meals if nausea is anticipated, not after. Discouraging snacks limits caloric intake in clients already at risk for malnutrition; frequent small meals and snacks are beneficial.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 11
+    },
+    {
+        "q": "A nurse is caring for a client who had a stroke and is drooling. Which of the following actions should the nurse take? (Select all that apply.)",
+        "opts": [
+            "Offer the client thickened liquids to drink.",
+            "Monitor the client for indications of fatigue during meals.",
+            "Check the client's gag reflex.",
+            "Monitor the client's ability to speak consistently.",
+            "Place the client in a supine position for meals."
+        ],
+        "correct": [
+            1,
+            2,
+            3
+        ],
+        "rat": "** Checking the gag reflex is the priority as it directly assesses the client's ability to swallow safely and determines if oral intake is safe. Monitoring for fatigue during meals is important because fatigue compromises swallowing coordination and increases aspiration risk. Monitoring speech consistency provides insights into neurological recovery and motor control. Offering thickened liquids should only occur after confirming safe swallowing mechanisms. Supine positioning increases aspiration risk; the client should be upright at 90 degrees for meals.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 12
+    },
+    {
+        "q": "A nurse is teaching a client who has hyperlipidemia and a new prescription for atorvastatin. The nurse should instruct the client to avoid which of the following foods? (Select all that apply.)",
+        "opts": [
+            "Grapefruit",
+            "Grapefruit juice",
+            "Coffee",
+            "Milk",
+            "Oatmeal"
+        ],
+        "correct": [
+            0,
+            1
+        ],
+        "rat": "** Grapefruit and grapefruit juice inhibit the cytochrome P450 3A4 enzyme in the liver, which metabolizes atorvastatin. When this enzyme is blocked, atorvastatin levels rise, increasing the risk of muscle toxicity and liver damage. Clients taking statins must completely avoid grapefruit in any form. Coffee does not interact with atorvastatin clinically. Milk does not interfere with atorvastatin absorption or metabolism. Oatmeal is beneficial for hyperlipidemia as it contains soluble fiber that helps lower LDL cholesterol.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 13
+    },
+    {
+        "q": "A nurse is updating a plan of care for a client who has a new prescription for a calorie count. Which of the following interventions should the nurse include? (Select all that apply.)",
+        "opts": [
+            "Record between-meal snacks on the calorie count form.",
+            "Begin the calorie count with the client's next evening meal.",
+            "Include all liquids in the total calorie count.",
+            "Complete the calorie count for a 5-day period.",
+            "Document all foods and beverages consumed. - **F.** Begin the calorie count as soon as the prescription is initiated. ✓"
+        ],
+        "correct": [
+            0,
+            2,
+            4
+        ],
+        "rat": "** Between-meal snacks contribute significantly to total daily caloric intake and must be included for an accurate count. Liquids containing calories such as juice, milk, and nutritional supplements must be included. Documenting all foods and beverages ensures complete dietary assessment. Calorie counts should begin immediately when prescribed, not delayed until a specific mealtime. Waiting to begin with the evening meal may result in missed intake data. A standard calorie count is typically conducted over 72 hours (3 days), not 5 days.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 14
+    },
+    {
+        "q": "A nurse is planning care for a client who is to have a mechanically altered diet following a stroke. Which of the following foods should the nurse recommend to include in the client's diet? (Select all that apply.)",
+        "opts": [
+            "Ground meat",
+            "Raw broccoli",
+            "Strawberries",
+            "Mashed potatoes",
+            "Ice cream - **F.** Cooked carrots ✓"
+        ],
+        "correct": [
+            0,
+            3,
+            4
+        ],
+        "rat": "** Ground meat is soft, easily chewed and swallowed, and provides protein essential for recovery. Mashed potatoes are smooth, easy to swallow, and help prevent choking or aspiration. Ice cream has a soft, smooth texture that is easy to swallow and provides calories. Cooked carrots are soft and can be mashed or pureed for safe consumption. Raw broccoli has a tough, fibrous texture unsuitable for a mechanically altered diet. Strawberries, even when soft, have seeds and texture that may pose a choking risk unless pureed.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 15
+    },
+    {
+        "q": "A nurse is planning care for a client who has anorexia nervosa. Which of the following actions should the nurse include in the plan? (Select all that apply.)",
+        "opts": [
+            "Offer the client a selection of beverages at each meal.",
+            "Inform the client that a weight gain of 5 lb per week is expected.",
+            "Arrange for someone to remain with the client for 60-90 minutes after meals.",
+            "Encourage the client to participate in developing dietary goals.",
+            "Provide positive reinforcement for meeting nutritional goals."
+        ],
+        "correct": [
+            2,
+            3,
+            4
+        ],
+        "rat": "** Monitoring for 60-90 minutes after meals is essential to prevent purging or other compensatory behaviors. Involving the client in setting dietary goals promotes autonomy, collaboration, and ownership in recovery. Positive reinforcement supports motivation and acknowledges progress. Offering beverage variety may give clients a sense of control, but they often use fluids to avoid calorie-dense solid foods. A weight gain goal of 5 lb per week is too aggressive and may provoke anxiety; 1-2 lb per week is safer and more tolerable.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 16
+    },
+    {
+        "q": "A nurse is caring for a client who has diabetes mellitus and is experiencing a mild hypoglycemic reaction. Which of the following snacks should the nurse offer the client that contains 15 g of carbohydrates? (Select all that apply.)",
+        "opts": [
+            "120 mL (4 oz) sugar-free soda",
+            "Three saltine crackers",
+            "120 mL (4 oz) fruit juice",
+            "Three pieces of hard candy",
+            "1 tablespoon of honey or sugar - **F.** 4-5 glucose tablets ✓"
+        ],
+        "correct": [
+            2,
+            4
+        ],
+        "rat": "** Fruit juice (4 oz) typically contains approximately 15 grams of fast-acting carbohydrates and is quickly absorbed. One tablespoon of honey or sugar provides about 15 grams of carbohydrates and rapidly raises blood glucose. 4-5 glucose tablets are specifically designed to deliver 15-20 grams of carbohydrates for hypoglycemia treatment. Sugar-free soda contains no carbohydrates and will not correct hypoglycemia. Three saltine crackers contain only 6-7 grams of carbohydrates, which is insufficient. Three pieces of hard candy usually provide only 9-12 grams, depending on brand and size.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 17
+    },
+    {
+        "q": "A nurse is providing teaching about food allergies to the parents of a toddler. Which of the following foods should the nurse identify as the highest risk for allergies in toddlers? (Select all that apply.)",
+        "opts": [
+            "Eggs",
+            "Milk",
+            "Citrus fruits",
+            "Bananas",
+            "Peanuts - **F.** Shellfish ✓"
+        ],
+        "correct": [
+            0,
+            1,
+            4
+        ],
+        "rat": "** Eggs are among the most common food allergens in toddlers, with proteins in egg whites frequently triggering reactions. Cow's milk is a common allergen in infants and toddlers, though some children outgrow it. Peanuts are a highly allergenic food that can cause severe reactions, including anaphylaxis. Shellfish is a common allergen that often persists throughout life. Citrus fruits may cause irritation due to acidity but are not among the top food allergens. Bananas are generally well-tolerated and have low allergenic potential.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 18
+    },
+    {
+        "q": "A nurse is providing education to adolescents about healthy food choices. A cookie has 2 g of protein, 12 g of fat, and 30 g of carbohydrates. How many calories does the cookie contain? (Calculate to the nearest whole number.)",
+        "opts": [],
+        "correct": [],
+        "rat": "** To calculate total calories, multiply each macronutrient by its caloric value per gram. Protein provides 4 calories per gram: 2 g × 4 = 8 calories. Fat provides 9 calories per gram: 12 g × 9 = 108 calories. Carbohydrates provide 4 calories per gram: 30 g × 4 = 120 calories. Adding these together: 8 + 108 + 120 = 236 calories total.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 19
+    },
+    {
+        "q": "A nurse is caring for a client who has dysphagia. Which of the following actions should the nurse take to reduce the risk for aspiration? (Select all that apply.)",
+        "opts": [
+            "Place the client in semi-Fowler's position for meals.",
+            "Encourage the client to drink water after each bite.",
+            "Offer the client liquids with a syringe during meals.",
+            "Instruct the client to tuck their chin to their chest before swallowing.",
+            "Place the client in high-Fowler's position for meals. - **F.** Allow plenty of time for eating without rushing. ✓"
+        ],
+        "correct": [
+            3,
+            4
+        ],
+        "rat": "** Tucking the chin to the chest (chin-tuck maneuver) helps close off the airway and directs food toward the esophagus. High-Fowler's position (90 degrees) uses gravity to prevent aspiration and promote safe swallowing. Allowing plenty of time prevents rushing, which can lead to poor coordination and aspiration. Semi-Fowler's position is insufficient; a more upright position is needed. Drinking water between bites can increase aspiration risk as thin liquids are difficult to control. Offering liquids with a syringe creates uncontrollable flow, increasing aspiration risk.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 20
+    },
+    {
+        "q": "A nurse is teaching a client who is receiving enteral nutrition via bolus feedings. Which of the following statements by the client indicates an understanding of the teaching? (Select all that apply.)",
+        "opts": [
+            "\"I do not need a pump to administer my feedings.\"",
+            "\"I should administer the formula at a cold temperature.\"",
+            "\"I should advance the rate of my feedings slowly.\"",
+            "\"I will administer my feedings at a constant rate over 24 hours.\"",
+            "\"I should sit upright during and after my feedings.\" - **F.** \"I will flush my tube before and after each feeding.\" ✓"
+        ],
+        "correct": [
+            0,
+            4
+        ],
+        "rat": "** Bolus feedings are delivered by gravity or syringe and do not require an infusion pump, allowing flexibility in daily routine. Sitting upright during and after feedings reduces aspiration risk by using gravity to keep formula in the stomach. Flushing the tube before and after each feeding maintains patency and prevents blockage. Cold formula can cause gastric discomfort and cramping; formula should be at room temperature. Advancing rate applies to continuous feedings, not bolus. Constant rate over 24 hours describes continuous feeding, not bolus.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 21
+    },
+    {
+        "q": "A nurse is providing teaching to an adolescent client who has cystic fibrosis and reports increased fatigue and weight loss. Which of the following instructions should the nurse include in the teaching? (Select all that apply.)",
+        "opts": [
+            "\"Include supplemental pancreatic enzymes with all meals and snacks.\"",
+            "\"Avoid taking water-soluble vitamins with pancreatic enzymes.\"",
+            "\"Adjust pancreatic enzymes to achieve two to three formed stools per day.\"",
+            "\"Decrease pancreatic enzymes when eating high-fat meals.\"",
+            "\"Take fat-soluble vitamin supplements (A, D, E, K).\" - **F.** \"Eat high-calorie, high-protein foods to maintain weight.\" ✓"
+        ],
+        "correct": [
+            0,
+            2,
+            4
+        ],
+        "rat": "** Pancreatic enzymes must be taken with all meals and snacks to aid digestion and nutrient absorption. Enzyme dosage is adjusted to achieve 2-3 formed stools per day, indicating adequate digestion. Fat-soluble vitamin supplements (A, D, E, K) are often needed due to malabsorption in cystic fibrosis. High-calorie, high-protein foods help maintain weight and meet increased energy needs. Water-soluble vitamins are not affected by pancreatic enzymes and can be taken with them. High-fat meals actually require more enzymes, not fewer, for proper digestion.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 22
+    },
+    {
+        "q": "A nurse is assessing a male client who began receiving total parenteral nutrition 24 hr ago. Which of the following findings should indicate to the nurse the client is experiencing a complication? (Select all that apply.)",
+        "opts": [
+            "Elevated erythrocyte sedimentation rate (ESR)",
+            "Increased bilirubin levels",
+            "Guaiac fecal occult blood test positive",
+            "Weight gain of 3.5 lb (1.6 kg) in 24 hours",
+            "Blood glucose 250 mg/dL - **F.** Temperature 101.3°F (38.5°C) ✓"
+        ],
+        "correct": [
+            3,
+            4
+        ],
+        "rat": "** Rapid weight gain of 3.5 lb in 24 hours suggests fluid overload, a potential TPN complication requiring immediate intervention. Blood glucose 250 mg/dL indicates hyperglycemia, a common metabolic complication of TPN requiring insulin adjustment. Fever may indicate sepsis related to the central line, a life-threatening complication. Elevated ESR is a nonspecific inflammation marker and not an immediate TPN complication. Increased bilirubin may indicate liver dysfunction but is unlikely after only 24 hours. Positive occult blood indicates GI bleeding, not a typical TPN complication.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 23
+    },
+    {
+        "q": "A nurse is planning eating strategies with a client who has nausea from equilibrium imbalance. Which of the following strategies should the nurse recommend? (Select all that apply.)",
+        "opts": [
+            "Encourage the client to eat even if nauseated.",
+            "Provide low-fat carbohydrates with meals.",
+            "Limit fluid intake between meals.",
+            "Serve foods at cool or room temperature.",
+            "Eat small, frequent meals throughout the day. - **F.** Avoid strong-smelling or greasy foods. ✓"
+        ],
+        "correct": [
+            1,
+            3,
+            4
+        ],
+        "rat": "** Low-fat carbohydrates like crackers and toast are easier to digest and less likely to trigger nausea. Cool or room-temperature foods have milder smells and are better tolerated than hot foods. Small, frequent meals prevent an empty stomach and reduce nausea episodes. Avoiding strong-smelling or greasy foods minimizes nausea triggers. Forcing food despite nausea can worsen symptoms and lead to vomiting. Limiting fluids between meals can contribute to dehydration; small sips throughout the day are recommended.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 24
+    },
+    {
+        "q": "A nurse is planning to teach a group of clients about heart healthy food choices at a community health fair. Which of the following instructions should the nurse plan to include in the teaching? (Select all that apply.)",
+        "opts": [
+            "Limit egg yolks to five per week.",
+            "Limit meat intake to 10 oz per day.",
+            "Choose oily fish for two meals each week.",
+            "Choose ground beef that is 70% lean.",
+            "Eat a variety of fruits and vegetables daily. - **F.** Choose whole grains over refined grains. ✓"
+        ],
+        "correct": [
+            2,
+            4
+        ],
+        "rat": "** Oily fish (salmon, mackerel, sardines) provides omega-3 fatty acids that reduce heart disease risk. Fruits and vegetables provide fiber, vitamins, and antioxidants that support cardiovascular health. Whole grains contain more fiber and nutrients than refined grains, supporting heart health. Limiting egg yolks to five per week is outdated; current guidelines are more flexible. Ten ounces of meat daily may be acceptable depending on type and fat content. Ground beef that is 70% lean is too high in saturated fat; 90% lean or higher is recommended.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 25
+    },
+    {
+        "q": "A nurse is reviewing the medical record of a client who has a stage 2 pressure injury. The nurse should identify that which of the following findings can impair the client's ability to heal? (Select all that apply.)",
+        "opts": [
+            "Elevated vitamin K levels",
+            "Zinc deficiency",
+            "Constipation",
+            "Acid reflux",
+            "Protein deficiency - **F.** Vitamin C deficiency ✓"
+        ],
+        "correct": [
+            1,
+            4
+        ],
+        "rat": "** Zinc deficiency impairs wound healing by reducing collagen synthesis and immune function. Protein deficiency prevents tissue repair and new tissue formation. Vitamin C deficiency impairs collagen synthesis, which is essential for wound healing. Elevated vitamin K does not impair healing; it affects coagulation. Constipation causes discomfort but does not directly affect wound healing. Acid reflux affects the digestive system and is not related to wound healing.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 26
+    },
+    {
+        "q": "A nurse is assessing a client who has diabetes mellitus. The nurse should identify that which of the following findings are manifestations of hypoglycemia? (Select all that apply.)",
+        "opts": [
+            "Increased thirst",
+            "Urinary frequency",
+            "Weakness",
+            "Skin flushing",
+            "Shakiness - **F.** Diaphoresis (sweating) ✓"
+        ],
+        "correct": [
+            2,
+            4
+        ],
+        "rat": "** Weakness occurs when blood glucose drops too low, depriving cells of fuel. Shakiness results from sympathetic nervous system activation in response to low blood sugar. Diaphoresis (sweating) is a classic autonomic response to hypoglycemia. Increased thirst is typically a manifestation of hyperglycemia, not hypoglycemia. Urinary frequency is also associated with hyperglycemia as the kidneys attempt to excrete excess glucose. Skin flushing is not typical of hypoglycemia; cool, pale, clammy skin is more common.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 27
+    },
+    {
+        "q": "A nurse is conducting a prenatal course about breastfeeding to a group of clients who are pregnant. Which of the following information should the nurse include? (Select all that apply.)",
+        "opts": [
+            "Avoid feeding the infant more than once every 3 hr.",
+            "Provide the newborn with 15 mL of sterile water each day.",
+            "Store expressed milk in the refrigerator for up to 7 days.",
+            "Feedings should begin within 1 hr after birth.",
+            "Feed the newborn on demand, about 8-12 times per day. - **F.** Colostrum provides antibodies and nutrients for the newborn. ✓"
+        ],
+        "correct": [
+            3,
+            4
+        ],
+        "rat": "** Initiating breastfeeding within the first hour after birth promotes bonding, establishes milk supply, and provides colostrum. Feeding on demand (8-12 times daily) ensures adequate nutrition and supports milk production. Colostrum is rich in antibodies and nutrients essential for the newborn's immune system. Restricting feedings to every 3 hours can lead to inadequate intake and poor weight gain. Water is unnecessary and can interfere with breast milk intake. Expressed milk should be stored for 3-5 days, not 7 days, to ensure safety.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 28
+    },
+    {
+        "q": "A nurse is providing teaching to a client who is in the first trimester of pregnancy. Which of the following dietary considerations should the nurse teach to decrease exposure of the fetus to harmful effects? (Select all that apply.)",
+        "opts": [
+            "\"Limit consumption of high-mercury fish such as shark and swordfish.\"",
+            "\"Avoid soft cheeses made from unpasteurized milk.\"",
+            "\"Decrease salt intake to prevent preeclampsia.\"",
+            "\"Use artificial sweeteners to decrease gestational diabetes risk.\"",
+            "\"Avoid deli meats unless heated until steaming hot.\" - **F.** \"Limit caffeine intake to less than 200 mg per day.\" ✓"
+        ],
+        "correct": [
+            0,
+            1,
+            4
+        ],
+        "rat": "** High-mercury fish can harm fetal brain development and should be limited. Soft cheeses from unpasteurized milk may contain Listeria, which causes pregnancy complications. Deli meats should be heated to steaming to kill Listeria bacteria. Caffeine should be limited to under 200 mg daily to reduce miscarriage risk. Salt reduction does not prevent preeclampsia; normal dietary guidelines apply. Artificial sweeteners do not prevent gestational diabetes and some have unclear safety profiles.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 29
+    },
+    {
+        "q": "A nurse is counseling a client about principles that promote weight loss. Which of the following statements by the client indicates an understanding of the teaching? (Select all that apply.)",
+        "opts": [
+            "\"I will eat something when I feel hungry.\"",
+            "\"I will peel apples before I eat them.\"",
+            "\"I will eliminate carbohydrates from my diet.\"",
+            "\"I will use corn oil when frying foods.\"",
+            "\"I will keep a food journal to track my intake.\" - **F.** \"I will practice mindful eating without distractions.\" ✓"
+        ],
+        "correct": [
+            0,
+            4
+        ],
+        "rat": "** Responding to true physical hunger supports mindful eating and prevents overeating from emotional cues. Keeping a food journal increases awareness of eating patterns and portion sizes. Mindful eating without distractions helps recognize satiety cues and prevents overconsumption. Apple peels contain fiber that increases satiety; removing them reduces fullness. Eliminating carbohydrates completely is not recommended for healthy, sustainable weight loss. Frying foods increases calorie density regardless of oil type; baking or grilling is healthier.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 30
+    },
+    {
+        "q": "A nurse is providing teaching to the parent of a newborn who has gastroesophageal reflux. Which of the following instructions should the nurse include? (Select all that apply.)",
+        "opts": [
+            "\"Provide a small feeding just before bedtime.\"",
+            "\"Position the newborn at a 20-30 degree angle after feeding.\"",
+            "\"Place the newborn in a side-lying position if vomiting.\"",
+            "\"Dilute formula with 1 tablespoon of water.\"",
+            "\"Burp the newborn frequently during feedings.\" - **F.** \"Keep the newborn upright for 20-30 minutes after feeding.\" ✓"
+        ],
+        "correct": [
+            1,
+            4
+        ],
+        "rat": "** Positioning at 20-30 degrees after feeding uses gravity to prevent reflux. Frequent burping during feedings releases trapped air that can contribute to reflux. Keeping the newborn upright after feeding allows digestion and reduces reflux episodes. Feeding before bedtime increases reflux risk due to full stomach and recumbent positioning. Side-lying is not recommended due to SIDS risk; back sleeping is safest. Diluting formula can cause electrolyte imbalances and inadequate nutrition.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 31
+    },
+    {
+        "q": "A nurse is providing dietary teaching to a client who is pregnant and requires an increase in dietary iron. Which of the following foods are sources of heme iron that the nurse should include in the teaching? (Select all that apply.)",
+        "opts": [
+            "Fortified cereals",
+            "Ground beef",
+            "Kale",
+            "Lima beans",
+            "Chicken liver - **F.** Salmon ✓"
+        ],
+        "correct": [
+            1,
+            4
+        ],
+        "rat": "** Ground beef provides heme iron from animal hemoglobin, which is highly absorbable. Chicken liver is an excellent source of heme iron, providing concentrated iron content. Salmon contains heme iron and is also a good source of omega-3 fatty acids. Fortified cereals contain non-heme iron, which is less absorbable. Kale contains non-heme iron from plant sources. Lima beans provide non-heme iron and require vitamin C for enhanced absorption.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 32
+    },
+    {
+        "q": "A nurse is providing discharge teaching to a client who has hypocalcemia. Which of the following statements by the client indicates understanding of the teaching? (Select all that apply.)",
+        "opts": [
+            "\"I should report any tingling I feel around my mouth.\"",
+            "\"I should take a 2,500 mg calcium supplement every day.\"",
+            "\"I should avoid dairy products, including cheese.\"",
+            "\"I should expect my blood pressure to be very low.\"",
+            "\"I will include dairy products like yogurt and milk in my diet.\" - **F.** \"I will watch for muscle cramps or spasms.\" ✓"
+        ],
+        "correct": [
+            0,
+            4
+        ],
+        "rat": "** Tingling around the mouth (perioral paresthesia) is a classic hypocalcemia symptom requiring immediate reporting. Including dairy products provides dietary calcium to help correct deficiency. Watching for muscle cramps or spasms helps monitor for worsening hypocalcemia. A 2500 mg supplement exceeds the recommended upper limit (2000 mg) and risks hypercalcemia. Avoiding dairy products reduces calcium intake, which is counterproductive. Low blood pressure is not typical; neuromuscular symptoms are more common.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 33
+    },
+    {
+        "q": "A nurse is assisting a client who has hypertension with selecting meals. The client reports following Islamic dietary laws. Which of the following are appropriate menu selections for this client? (Select all that apply.)",
+        "opts": [
+            "Whole-wheat pasta with marinara sauce",
+            "Broiled chicken with grilled potatoes",
+            "Roast beef with brown rice",
+            "Grilled pork loin with vegetables",
+            "Baked fish with steamed vegetables - **F.** Lentil soup with whole grain bread ✓"
+        ],
+        "correct": [
+            0,
+            1,
+            4
+        ],
+        "rat": "** Whole-wheat pasta with marinara is plant-based and halal, suitable for hypertension. Broiled chicken is halal if prepared according to Islamic law, and grilled potatoes are low in sodium. Baked fish is halal and provides lean protein; vegetables are heart-healthy. Lentil soup with whole grain bread is plant-based, halal, and supports blood pressure management. Roast beef may be halal if certified, but cannot be assumed without verification. Pork is strictly prohibited (haram) in Islamic dietary laws.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 34
+    },
+    {
+        "q": "A nurse is caring for a 30-month-old toddler and is preparing a nutritional snack. Which of the following foods are appropriate for the nurse to offer the toddler? (Select all that apply.)",
+        "opts": [
+            "Cheese cubes",
+            "Whole grapes",
+            "Plain popcorn",
+            "Raw carrots",
+            "Banana slices - **F.** Cooked, soft apple slices ✓"
+        ],
+        "correct": [
+            0,
+            4
+        ],
+        "rat": "** Cheese cubes provide calcium and protein and are soft, easy to chew, and safe when cut into small pieces. Banana slices are soft, easy to swallow, and nutritious. Cooked, soft apple slices are safe because cooking softens the texture, reducing choking risk. Whole grapes are a choking hazard due to round shape and slippery texture. Popcorn poses a high choking risk for children under 4 years. Raw carrots are firm and hard to chew, making them a common choking hazard.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 35
+    },
+    {
+        "q": "A nurse is providing postpartum education about newborn feedings to a client who has recently given birth. Which of the following information should the nurse include about bottle feeding? (Select all that apply.)",
+        "opts": [
+            "Feedings should begin within 1 hr after birth.",
+            "Feedings can be controlled by gravity alone.",
+            "Feedings should be on demand, about every 3-4 hours.",
+            "Feedings may occur in clusters.",
+            "Hold the bottle at an angle to prevent choking. - **F.** Discard unused formula after each feeding. ✓"
+        ],
+        "correct": [
+            0,
+            2,
+            4
+        ],
+        "rat": "** Initiating feeding within the first hour supports bonding and stabilizes newborn blood glucose. On-demand feeding every 3-4 hours ensures adequate nutrition. Holding the bottle at an angle prevents uncontrolled flow and aspiration. Discarding unused formula prevents bacterial growth from saliva contamination. Gravity alone can cause overfeeding and aspiration; caregivers should control flow. Cluster feeding is more common with breastfeeding, not bottle feeding.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 36
+    },
+    {
+        "q": "A nurse is recommending calcium-rich foods for a client who has an allergy to dairy products. The nurse should identify that which of the following foods contain significant amounts of calcium? (Select all that apply.)",
+        "opts": [
+            "1/2 cup almonds",
+            "1 cup cooked kale",
+            "1/4 cup quinoa",
+            "1/2 cup chopped tomatoes",
+            "Fortified orange juice - **F.** Canned salmon with bones ✓"
+        ],
+        "correct": [
+            0,
+            1,
+            4
+        ],
+        "rat": "** Almonds provide approximately 185-200 mg of calcium per 1/2 cup serving. Cooked kale is a leafy green rich in absorbable calcium. Fortified orange juice provides calcium comparable to dairy products. Canned salmon with bones provides highly absorbable calcium. Quinoa contains only 20-30 mg of calcium per serving, which is modest. Tomatoes are very low in calcium, providing only about 10 mg per serving.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 37
+    },
+    {
+        "q": "A nurse is assessing a female client who is at risk for osteoporosis. Which of the following recommendations should the nurse make? (Select all that apply.)",
+        "opts": [
+            "\"Supplement your diet with 400 micrograms of folic acid.\"",
+            "\"Adhere to a low-protein diet.\"",
+            "\"Add more leafy greens to your diet.\"",
+            "\"Increase your dietary fiber intake.\"",
+            "\"Ensure adequate vitamin D intake.\" - **F.** \"Perform weight-bearing exercises regularly.\" ✓"
+        ],
+        "correct": [
+            2,
+            4
+        ],
+        "rat": "** Leafy greens provide calcium, magnesium, and vitamin K, all supporting bone health. Adequate vitamin D is essential for calcium absorption and bone formation. Weight-bearing exercises stimulate bone formation and maintain density. Folic acid supports fetal development but does not affect osteoporosis risk. Low-protein diets impair bone matrix formation and calcium absorption. Fiber is important for digestive health but does not directly affect bone density.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 38
+    },
+    {
+        "q": "A nurse is initiating an intermittent enteral feeding for a client who has a new gastrostomy tube. Which of the following actions should the nurse take? (Select all that apply.)",
+        "opts": [
+            "Elevate the head of the bed to 30-45 degrees.",
+            "Attach the barrel of the syringe to the tube after removing the plunger.",
+            "Insert air into the tube before pulling back gastric contents.",
+            "Flush the tube with 30 mL water before feeding.",
+            "Verify tube placement before starting the feeding. - **F.** Administer the feeding over 15-30 minutes. ✓"
+        ],
+        "correct": [
+            0,
+            1,
+            2,
+            3,
+            4
+        ],
+        "rat": "** All options are correct steps in initiating intermittent enteral feeding. Elevating the head of the bed prevents aspiration. Attaching the syringe barrel allows gravity feeding. Inserting air and aspirating confirms tube placement. Flushing verifies patency before feeding. Verification of placement is essential for safety. Administering over 15-30 minutes prevents dumping syndrome and promotes tolerance.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 39
+    },
+    {
+        "q": "A nurse is caring for a client who has benign prostatic hyperplasia. Which of the following findings indicates that the client's treatment has been effective? (Select all that apply.)",
+        "opts": [
+            "Creatinine level of 1.0 mg/dL",
+            "Urine output of 35 mL/hr",
+            "Force of urinary stream has improved.",
+            "Passes soft, brown stool",
+            "Reports decreased urinary frequency. - **F.** Reports no nocturia or interrupted sleep. ✓"
+        ],
+        "correct": [
+            2,
+            4
+        ],
+        "rat": "** Improved urinary stream indicates reduced urethral obstruction, a primary treatment goal. Decreased urinary frequency reflects relief from lower urinary tract symptoms. No nocturia indicates successful symptom management and improved quality of life. Normal creatinine suggests adequate kidney function but does not directly reflect BPH treatment success. Normal urine output does not confirm obstruction relief. Bowel movements are unrelated to BPH treatment outcomes.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 40
+    },
+    {
+        "q": "A nurse is assessing a client who has received treatment for hypocalcemia. Which of the following findings indicates the treatment has been effective? (Select all that apply.)",
+        "opts": [
+            "Moist mucous membranes",
+            "Negative Chvostek's sign",
+            "Weight gain",
+            "Urine output 25 mL/hr",
+            "Negative Trousseau's sign - **F.** Absence of muscle cramps or tetany ✓"
+        ],
+        "correct": [
+            1,
+            4
+        ],
+        "rat": "** Negative Chvostek's sign indicates normalized calcium levels and reduced neuromuscular irritability. Negative Trousseau's sign confirms absence of latent tetany from hypocalcemia. Absence of muscle cramps or tetany shows symptomatic improvement. Moist mucous membranes indicate hydration but not calcium status. Weight gain is not specific to calcium normalization. Urine output of 25 mL/hr is below normal and not related to calcium levels.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 41
+    },
+    {
+        "q": "A nurse is providing anticipatory guidance to a client who has phenylketonuria (PKU) and is planning a pregnancy. Which of the following information should the nurse include in the discussion? (Select all that apply.)",
+        "opts": [
+            "\"Diet sodas should not be consumed more than two or three times per week.\"",
+            "\"Serum bilirubin should be monitored one to two times per month during pregnancy.\"",
+            "\"Breastfeeding will prevent your baby from developing PKU.\"",
+            "\"A low-protein diet should be followed for 3 months prior to conception.\"",
+            "\"Avoid aspartame-containing products completely.\" - **F.** \"Strict dietary control before and during pregnancy prevents fetal harm.\" ✓"
+        ],
+        "correct": [
+            3,
+            4
+        ],
+        "rat": "** A low-protein, low-phenylalanine diet before conception reduces teratogenic risk to the fetus. Aspartame contains phenylalanine and must be completely avoided. Strict dietary control maintains safe phenylalanine levels and prevents fetal developmental delays. Diet sodas with aspartame should be avoided entirely, not just limited. Bilirubin monitoring is unrelated to PKU management. Breastfeeding does not prevent inheritance of the genetic disorder.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 42
+    },
+    {
+        "q": "A nurse is teaching a group of clients about recommended nutrition for healthy eating. Which of the following instructions should the nurse include in the teaching? (Select all that apply.)",
+        "opts": [
+            "Keep total fat intake at 20-35% of calories per day.",
+            "Limit cholesterol intake to 500 mg per day.",
+            "Consume 50% of daily food intake from protein.",
+            "Restrict sodium intake to less than 2,300 mg per day.",
+            "Choose unsaturated fats over saturated fats. - **F.** Eat at least 5 servings of fruits and vegetables daily. ✓"
+        ],
+        "correct": [
+            0,
+            3,
+            4
+        ],
+        "rat": "** Total fat intake of 20-35% supports cardiovascular health when focused on healthy fats. Sodium restriction to less than 2,300 mg daily helps maintain healthy blood pressure. Choosing unsaturated fats over saturated fats reduces heart disease risk. Five servings of fruits and vegetables provide essential vitamins, minerals, and fiber. Cholesterol should be limited to less than 300 mg daily, not 500 mg. Protein should comprise 10-35% of calories; 50% is excessive.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 43
+    },
+    {
+        "q": "A nurse is reviewing the laboratory findings of a client who has type 1 diabetes mellitus. Which of the following findings should the nurse report to the provider immediately? (Select all that apply.)",
+        "opts": [
+            "Platelets 130,000/mm³",
+            "Creatinine 1.3 mg/dL",
+            "Glucose 423 mg/dL",
+            "HbA1c 9%",
+            "Potassium 6.2 mEq/L - **F.** pH 7.28 ✓"
+        ],
+        "correct": [
+            2,
+            4
+        ],
+        "rat": "** Glucose 423 mg/dL indicates severe hyperglycemia with risk for diabetic ketoacidosis. Potassium 6.2 mEq/L indicates hyperkalemia, which can cause cardiac arrhythmias. pH 7.28 indicates acidosis, confirming DKA or another metabolic emergency. Platelets 130,000 is mildly low but not immediately life-threatening. Creatinine 1.3 is slightly elevated but not an emergency. HbA1c 9% reflects poor long-term control but is not an acute finding.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 44
+    },
+    {
+        "q": "A nurse is conducting a pressure injury risk assessment on a client. Which of the following findings places the client at increased risk for skin breakdown? (Select all that apply.)",
+        "opts": [
+            "Has occasional incontinence",
+            "Eats one serving of protein per day",
+            "Responds to verbal commands",
+            "Is able to walk short distances",
+            "Has immobility requiring bed rest - **F.** Has decreased sensory perception ✓"
+        ],
+        "correct": [
+            1,
+            4
+        ],
+        "rat": "** Inadequate protein intake impairs tissue repair and skin integrity. Immobility causes prolonged pressure on bony prominences. Decreased sensory perception reduces awareness of discomfort, delaying repositioning. Occasional incontinence increases risk but is moderate compared to other factors. Responding to verbal commands allows participation in repositioning. Walking short distances promotes circulation and reduces pressure injury risk.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 45
+    },
+    {
+        "q": "A nurse is preparing to screen a newborn for phenylketonuria. The nurse should inform the parents that this screening allows for early detection and intervention to prevent which of the following conditions? (Select all that apply.)",
+        "opts": [
+            "Hypothyroidism",
+            "Growth restriction",
+            "Sickle cell anemia",
+            "Hypoglycemia",
+            "Irreversible intellectual disability - **F.** Developmental delays ✓"
+        ],
+        "correct": [
+            4
+        ],
+        "rat": "** PKU screening prevents irreversible intellectual disability by enabling early dietary intervention. Early treatment also prevents developmental delays associated with elevated phenylalanine levels. Hypothyroidism is a separate condition screened for by newborn screening but not related to PKU. Growth restriction may occur but is not the primary prevention target. Sickle cell anemia is a different genetic disorder. Hypoglycemia is unrelated to phenylalanine metabolism.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 46
+    },
+    {
+        "q": "A nurse is providing dietary teaching for a client who is at 28 weeks of gestation and has phenylketonuria (PKU). Which of the following foods should the client avoid? (Select all that apply.)",
+        "opts": [
+            "Apples",
+            "Milk",
+            "Carrots",
+            "Coffee",
+            "Eggs - **F.** Meat ✓"
+        ],
+        "correct": [
+            1,
+            4
+        ],
+        "rat": "** Milk is high in protein and contains significant phenylalanine, making it unsuitable. Eggs are high in protein and phenylalanine and must be avoided. Meat contains high levels of protein and phenylalanine. Apples are naturally low in phenylalanine and safe to consume. Carrots are low in protein and phenylalanine, making them safe. Coffee contains minimal phenylalanine unless milk or cream is added.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 47
+    },
+    {
+        "q": "A nurse is caring for a client who has moderate partial-thickness burns over 30% of their total body surface area. Which of the following actions should the nurse take? (Select all that apply.)",
+        "opts": [
+            "Initiate a low-protein diet.",
+            "Provide a vitamin C supplement.",
+            "Administer a potassium-sparing diuretic.",
+            "Limit zinc intake.",
+            "Provide high-protein foods to support healing. - **F.** Monitor for signs of infection. ✓"
+        ],
+        "correct": [
+            1,
+            4
+        ],
+        "rat": "** Vitamin C supports collagen synthesis and wound healing in burn clients. High-protein foods provide essential amino acids for tissue regeneration. Infection monitoring is critical as burns compromise skin barrier function. Low-protein diet is inappropriate; protein needs are significantly increased. Diuretics are generally avoided in early burn care due to fluid shifts. Zinc is essential for healing; limiting it would be counterproductive.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 48
+    },
+    {
+        "q": "A nurse is evaluating the use of a nipple shield by a client who is breastfeeding. Which of the following actions by the client demonstrates correct use of the nipple shield? (Select all that apply.)",
+        "opts": [
+            "Places the nipple shield under the nipple to collect milk.",
+            "Expresses breast milk into the nipple shield for storage.",
+            "Places the nipple shield over the nipple prior to feeding.",
+            "Uses the nipple shield to relieve breast engorgement.",
+            "Ensures the infant's mouth covers the shield properly. - **F.** Cleans the shield according to manufacturer instructions. ✓"
+        ],
+        "correct": [
+            2,
+            4
+        ],
+        "rat": "** Placing the shield over the nipple before feeding helps the infant latch effectively. Ensuring proper coverage of the shield promotes effective milk transfer. Cleaning according to instructions prevents infection and maintains shield integrity. Collecting milk is not the purpose of a nipple shield. Milk storage requires separate containers designed for that purpose. Nipple shields do not relieve engorgement; other interventions are needed.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 49
+    },
+    {
+        "q": "A nurse is teaching about weight loss to a client who weighs 154 lb. The client has been consuming 30 cal/kg/day. The nurse instructs the client to decrease their intake by 10 cal/kg/day. How many calories should the client consume per day? (Round to the nearest whole number.)",
+        "opts": [],
+        "correct": [],
+        "rat": "** First, convert weight to kilograms: 154 lb ÷ 2.2 lb/kg = 70 kg. Calculate current daily calories: 30 cal/kg × 70 kg = 2100 calories. Calculate the calorie decrease: 10 cal/kg × 70 kg = 700 calories. Subtract the decrease from current intake: 2100 - 700 = 1400 calories per day.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 50
+    },
+    {
+        "q": "A nurse is completing a nutritional assessment of a female client. Which of the following findings should indicate to the nurse that the client is at an increased risk for developing cancer? (Select all that apply.)",
+        "opts": [
+            "Limits red meat intake to two servings a month",
+            "Eats six servings of whole grains daily",
+            "Eats at least five servings of fruits and vegetables daily",
+            "Limits alcohol consumption to two drinks per day",
+            "Consumes processed meats regularly - **F.** Has a diet high in saturated fats ✓"
+        ],
+        "correct": [
+            3,
+            4
+        ],
+        "rat": "** Two alcoholic drinks daily increases risk for breast, liver, and colorectal cancers. Processed meats are linked to colorectal and other cancers. High saturated fat intake is associated with increased cancer risk. Limiting red meat is protective, not a risk factor. Whole grains are protective due to fiber and antioxidants. Fruits and vegetables are protective due to vitamins and phytochemicals.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 51
+    },
+    {
+        "q": "A nurse is providing teaching about the Dietary Approaches to Stop Hypertension (DASH) diet to a client who has hypertension. Which of the following instructions should the nurse include? (Select all that apply.)",
+        "opts": [
+            "\"Consume ten percent of total calories from saturated fat.\"",
+            "\"Consume foods that are high in calcium.\"",
+            "\"Limit sodium intake to 2,300 milligrams per day.\"",
+            "\"Increase intake of refined carbohydrates.\"",
+            "\"Eat foods rich in potassium, such as bananas and potatoes.\" - **F.** \"Choose whole grains over refined grains.\" ✓"
+        ],
+        "correct": [
+            1,
+            2,
+            4
+        ],
+        "rat": "** Calcium-rich foods support healthy blood pressure regulation. Sodium limitation to 2300 mg (or 1500 mg ideally) is central to DASH. Potassium-rich foods help counteract sodium's effects on blood pressure. Whole grains provide fiber and nutrients that support heart health. Saturated fat should be much lower than 10%; the DASH diet emphasizes unsaturated fats. Refined carbohydrates are discouraged due to low fiber and nutrient content.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 52
+    },
+    {
+        "q": "A nurse is teaching a client about foods that are high in potassium. The nurse should identify that which of the following foods contain the highest amounts of potassium? (Select all that apply.)",
+        "opts": [
+            "1 cup cooked quinoa",
+            "1 cup dried apricots",
+            "1 cup cheddar cheese",
+            "1 cup brown rice",
+            "1 medium banana - **F.** 1 cup cooked spinach ✓"
+        ],
+        "correct": [
+            1,
+            4
+        ],
+        "rat": "** Dried apricots contain over 1500 mg of potassium per cup, making them exceptionally high. Bananas are well-known for potassium, providing about 400-450 mg per medium fruit. Cooked spinach provides approximately 800 mg of potassium per cup. Quinoa contains only about 300 mg per cup. Cheddar cheese has only about 200 mg per cup. Brown rice provides only about 150 mg per cup.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 53
+    },
+    {
+        "q": "A nurse is teaching about denture care to the partner of a client who is unable to perform oral hygiene. Which of the following should the nurse include in the teaching? (Select all that apply.)",
+        "opts": [
+            "Use a washcloth to clean the denture surfaces.",
+            "Floss dentures as part of daily cleaning.",
+            "Wipe dentures before storing them in a dry container at night.",
+            "Wrap gloved fingers with gauze to remove dentures.",
+            "Store dentures in water or denture solution overnight. - **F.** Clean dentures daily with a soft-bristled brush. ✓"
+        ],
+        "correct": [
+            3,
+            4
+        ],
+        "rat": "** Wrapping gloved fingers with gauze provides grip and prevents dropping dentures during removal. Storing in water or solution prevents warping and drying. Daily cleaning with a soft brush removes plaque and food debris effectively. Washcloths are not effective for thorough cleaning. Flossing is for natural teeth, not dentures. Dry storage causes warping and damage.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 54
+    },
+    {
+        "q": "A nurse is caring for a client who is receiving total parenteral nutrition and is reporting diarrhea. Which of the following statements should the nurse make? (Select all that apply.)",
+        "opts": [
+            "\"You are experiencing gastric retention due to TPN.\"",
+            "\"You are not consuming enough dietary fiber.\"",
+            "\"Your TPN solution may have been too cold during administration.\"",
+            "\"You have had inadequate fluid intake.\"",
+            "\"The infusion rate may be too rapid.\" - **F.** \"The solution may have a high osmolarity.\" ✓"
+        ],
+        "correct": [
+            2,
+            4
+        ],
+        "rat": "** Cold TPN solution can stimulate peristalsis and cause diarrhea. Rapid infusion rates can overwhelm the GI tract and cause diarrhea. High osmolarity solutions can draw fluid into the gut, causing diarrhea. Gastric retention does not occur with TPN as it bypasses the GI tract. Fiber intake is irrelevant as TPN provides nutrition intravenously. Inadequate fluid intake is unlikely as TPN provides regulated fluids.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 55
+    },
+    {
+        "q": "A nurse is caring for a client who has hypertension and received nutritional counseling 1 month ago. Which of the following client statements indicates the counseling was effective? (Select all that apply.)",
+        "opts": [
+            "\"I use soup broth instead of butter to flavor food.\"",
+            "\"I have started cooking most of my meals.\"",
+            "\"I eat cheese cubes and crackers as a snack.\"",
+            "\"I add canned vegetables to my homemade soup.\"",
+            "\"I read food labels to check for sodium content.\" - **F.** \"I season food with herbs instead of salt.\" ✓"
+        ],
+        "correct": [
+            0,
+            4
+        ],
+        "rat": "** Using broth instead of butter reduces saturated fat and sodium intake. Reading labels shows awareness of hidden sodium in foods. Using herbs instead of salt directly reduces sodium intake. Cooking meals is positive but depends on ingredients used. Cheese and crackers are often high in sodium and saturated fat. Canned vegetables often contain high sodium unless low-sodium varieties are used.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 56
+    },
+    {
+        "q": "A nurse is planning care for a client who reports increasing difficulty swallowing food. Which of the following interventions should the nurse plan to take? (Select all that apply.)",
+        "opts": [
+            "Instruct the client to lie down after a meal.",
+            "Encourage the client to rest prior to mealtimes.",
+            "Turn on the client's television during meals.",
+            "Place the client into an upright 90-degree position for meals.",
+            "Offer small, frequent meals rather than large ones. - **F.** Consult a speech-language pathologist for swallowing evaluation. ✓"
+        ],
+        "correct": [
+            1,
+            3,
+            4
+        ],
+        "rat": "** Resting before meals conserves energy for safe swallowing. Upright positioning uses gravity to prevent aspiration. Small, frequent meals are less overwhelming and safer to manage. Speech-language pathologists specialize in dysphagia assessment and management. Lying down after meals increases aspiration risk. Television creates distraction, reducing focus on safe swallowing.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 57
+    },
+    {
+        "q": "A nurse is planning to administer total parenteral nutrition (TPN) to a client who is malnourished. Which of the following actions should the nurse plan to take? (Select all that apply.)",
+        "opts": [
+            "Remove the solution from the refrigerator 1 hr before infusing.",
+            "Increase the rate of the infusion as needed to keep it on schedule.",
+            "Weigh the client daily to assess fluid status.",
+            "Change the TPN catheter tubing every 72 hr.",
+            "Infuse TPN through a central venous line. - **F.** Monitor blood glucose levels regularly. ✓"
+        ],
+        "correct": [
+            0,
+            2,
+            4
+        ],
+        "rat": "** Warming to room temperature reduces vein irritation and discomfort. Daily weights assess fluid balance and nutritional status. Central line administration is required due to high osmolarity. Blood glucose monitoring detects hyperglycemia, a common TPN complication. Rate must be consistent and prescribed; increasing without orders causes complications. Tubing should be changed every 24 hours to prevent infection.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 58
+    },
+    {
+        "q": "A nurse is providing discharge teaching for a client who has iron-deficiency anemia. Which of the following information should the nurse include? (Select all that apply.)",
+        "opts": [
+            "Cooking in a stainless-steel skillet increases iron in food.",
+            "Drinking orange juice with iron supplements can increase absorption.",
+            "Drinking iced tea with meals can increase iron absorption.",
+            "Fish and poultry are primary sources of heme iron.",
+            "Take iron supplements with vitamin C for better absorption. - **F.** Red meat is a good source of heme iron. ✓"
+        ],
+        "correct": [
+            1,
+            3,
+            4
+        ],
+        "rat": "** Orange juice provides vitamin C, which enhances non-heme iron absorption. Fish and poultry provide heme iron, which is highly absorbable. Taking iron with vitamin C maximizes absorption. Red meat is an excellent source of heme iron. Stainless steel does not leach iron; cast iron cookware does. Iced tea contains tannins that bind iron and reduce absorption.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 59
+    },
+    {
+        "q": "A nurse is caring for a client who has hyperemesis gravidarum. Which of the following actions should the nurse take? (Select all that apply.)",
+        "opts": [
+            "Instruct the client to avoid salty foods.",
+            "Encourage the client to drink fluids with their meals.",
+            "Tell the client to consume foods served at cold temperatures.",
+            "Increase the client's intake of high-fat foods.",
+            "Offer small, frequent meals throughout the day. - **F.** Encourage the client to eat dry crackers before rising. ✓"
+        ],
+        "correct": [
+            2,
+            4
+        ],
+        "rat": "** Cold foods emit less odor, reducing nausea triggers. Small, frequent meals prevent an empty stomach and reduce nausea episodes. Dry crackers before rising help prevent morning sickness by avoiding an empty stomach. Salty foods are not specifically contraindicated; some clients tolerate them well. Fluids with meals can distend the stomach and worsen nausea. High-fat foods are harder to digest and may exacerbate nausea.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 60
+    },
+    {
+        "q": "A nurse is caring for a client who follows a vegan diet. The nurse should identify that the client is at risk for which of the following deficiencies? (Select all that apply.)",
+        "opts": [
+            "Folic acid",
+            "Vitamin D",
+            "Vitamin C",
+            "Magnesium",
+            "Vitamin B12 - **F.** Iron ✓"
+        ],
+        "correct": [
+            1,
+            4
+        ],
+        "rat": "** Vitamin D is found naturally in few plant foods; vegans need fortified foods or supplements. Vitamin B12 is only found naturally in animal products; vegans must supplement. Iron from plant sources (non-heme) is less absorbable, increasing deficiency risk. Folic acid is abundant in leafy greens, legumes, and fortified grains. Vitamin C is plentiful in fruits and vegetables commonly eaten. Magnesium is found in nuts, seeds, legumes, and whole grains.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 61
+    },
+    {
+        "q": "A nurse is providing teaching about natural food sources that contain folate to a client who plans to become pregnant. The nurse should identify that which of the following foods contains the highest amount of folate?",
+        "opts": [
+            "1 cup mashed potatoes",
+            "1 cup cooked carrots",
+            "1 cup cooked lentils",
+            "1 cup cooked green peppers"
+        ],
+        "correct": [
+            2
+        ],
+        "rat": "** Lentils are an excellent source of folate, providing a significant amount per serving. Adequate folate intake before and during early pregnancy is crucial for preventing neural tube defects in the developing fetus. Mashed potatoes, carrots, and green peppers contain lower amounts of folate compared to lentils.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 62
+    },
+    {
+        "q": "A nurse is assessing a client who has a decreased potassium level. Which of the following findings should the nurse expect? (Select all that apply.)",
+        "opts": [
+            "Muscle weakness",
+            "Hyperreflexia",
+            "Chvostek's sign",
+            "Seizures",
+            "Cardiac dysrhythmias - **F.** Fatigue ✓"
+        ],
+        "correct": [
+            0,
+            4
+        ],
+        "rat": "** Muscle weakness occurs due to reduced neuromuscular excitability from low potassium. Cardiac dysrhythmias result from potassium's role in myocardial conduction. Fatigue is common due to cellular energy deficits. Hyperreflexia is associated with hypocalcemia, not hypokalemia. Chvostek's sign indicates hypocalcemia. Seizures are more commonly linked to hyponatremia or hypocalcemia.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 63
+    },
+    {
+        "q": "A nurse is teaching a client about protein. Which of the following foods should the nurse include as complete proteins? (Select all that apply.)",
+        "opts": [
+            "Legumes",
+            "Eggs",
+            "Poultry",
+            "Grains",
+            "Nuts - **F.** Fish ✓"
+        ],
+        "correct": [
+            1,
+            2
+        ],
+        "rat": "** Eggs contain all nine essential amino acids and are a complete protein reference standard. Poultry provides all essential amino acids needed for protein synthesis. Fish is a complete protein source with all essential amino acids. Legumes lack some essential amino acids and are incomplete proteins. Grains lack certain amino acids like lysine and are incomplete. Nuts do not contain all essential amino acids in sufficient amounts.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 64
+    },
+    {
+        "q": "A nurse is assessing a child whose parents suspect an allergic reaction following the ingestion of peanuts. Which of the following findings indicate that the nurse should administer epinephrine IM? (Select all that apply.)",
+        "opts": [
+            "Ecchymosis",
+            "Atopic dermatitis",
+            "Double vision",
+            "Hoarseness",
+            "Stridor - **F.** Wheezing ✓"
+        ],
+        "correct": [
+            3,
+            4
+        ],
+        "rat": "** Hoarseness indicates laryngeal edema and airway compromise requiring epinephrine. Stridor signals upper airway obstruction from swelling. Wheezing indicates bronchospasm and lower airway involvement. Ecchymosis (bruising) is not an anaphylaxis symptom. Atopic dermatitis is chronic and not an acute emergency. Double vision is not a classic anaphylaxis symptom.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 65
+    },
+    {
+        "q": "A nurse is reviewing the laboratory results of a client who is taking warfarin and notes a decrease in the INR. The nurse should ask the client if they have recently increased their intake of which of the following foods? (Select all that apply.)",
+        "opts": [
+            "Tomatoes",
+            "Brussel sprouts",
+            "Potatoes",
+            "Pasta",
+            "Spinach - **F.** Kale ✓"
+        ],
+        "correct": [
+            1,
+            4
+        ],
+        "rat": "** Brussel sprouts are high in vitamin K, which counteracts warfarin and decreases INR. Spinach is very high in vitamin K and reduces warfarin effectiveness. Kale is extremely high in vitamin K and significantly affects INR. Tomatoes contain minimal vitamin K and do not affect INR. Potatoes are low in vitamin K and have no significant effect. Pasta is low in vitamin K and does not interact with warfarin.",
+        "chapName": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales",
+        "chapter": 2,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 66
+    }
+];
+
+var assessmentsInfo = [{"num": 2, "name": "ATI RN Nutrition 2023 Proctored Exam — Complete Questions with Rationales", "count": 66}];
+
+                        var themes = {
+                                1: { dark: "#0d2b6b", mid: "#1a4ba8", accent: "#ffd700", bg: "#eef3ff", border: "#b8ccf0", hover: "#d8e6ff", nav: "#c0d0f0", rat_bg: "#dce8ff", rat_border: "#1a4ba8", text: "#061840" },
+                                2: { dark: "#2a0a4a", mid: "#5e2a84", accent: "#ffb347", bg: "#f4eaff", border: "#d4b8f0", hover: "#e6cdff", nav: "#c4a0f0", rat_bg: "#ebd9ff", rat_border: "#5e2a84", text: "#1a0530" },
+                                3: { dark: "#053b3b", mid: "#0d7a7a", accent: "#ff9f1c", bg: "#e0f7f7", border: "#a0d8d8", hover: "#bdf0f0", nav: "#8fd1d1", rat_bg: "#ccf2f2", rat_border: "#0d7a7a", text: "#022020" },
+                                4: { dark: "#4a0d2b", mid: "#8a1a4b", accent: "#fcc200", bg: "#ffeef4", border: "#f0b8cc", hover: "#ffe6eb", nav: "#f0c0d0", rat_bg: "#ffdce8", rat_border: "#8a1a4b", text: "#2a0518" },
+                                5: { dark: "#1a2238", mid: "#364566", accent: "#ff6b6b", bg: "#edf2f7", border: "#cbd5e1", hover: "#e2e8f0", nav: "#94a3b8", rat_bg: "#f1f5f9", rat_border: "#364566", text: "#0f172a" },
+                                6: { dark: "#06402b", mid: "#107a53", accent: "#ffc107", bg: "#e6f6ee", border: "#a8dfc4", hover: "#c2ead6", nav: "#92d3b5", rat_bg: "#d6f2e2", rat_border: "#107a53", text: "#022416" },
+                                7: { dark: "#3d0c02", mid: "#8b1c08", accent: "#ffb300", bg: "#ffede6", border: "#f4c2b5", hover: "#fce0d4", nav: "#edb1a1", rat_bg: "#fcdbd1", rat_border: "#8b1c08", text: "#2a0701" },
+                                8: { dark: "#3b2313", mid: "#7a4a28", accent: "#3b82f6", bg: "#f5ece4", border: "#d6bbad", hover: "#e8d5c8", nav: "#c4ab9d", rat_bg: "#efe5dd", rat_border: "#7a4a28", text: "#26150a" }
+                        };
+
+                        function applyTheme(chapterId) {
+                                var t = themes[chapterId] || themes[1];
+                                var r = document.documentElement.style;
+                                r.setProperty('--dark', t.dark); r.setProperty('--mid', t.mid);
+                                r.setProperty('--accent', t.accent); r.setProperty('--bg', t.bg);
+                                r.setProperty('--border', t.border); r.setProperty('--hover', t.hover);
+                                r.setProperty('--nav', t.nav); r.setProperty('--rat-bg', t.rat_bg);
+                                r.setProperty('--rat-border', t.rat_border); r.setProperty('--text', t.text);
+                        }
+
+                        function renderQuestion() {
+                                var q = questions[currentQuestion];
+                                applyTheme(q.chapter);
+                                document.getElementById('question').textContent = q.q;
+                                document.getElementById('questionNumber').textContent = q.displayNumber;
+                                document.getElementById('counter').textContent = q.displayNumber + '/66';
+                                document.getElementById('progressBar').style.width = (q.displayNumber / 66 * 100) + '%';
+                                document.getElementById('assessmentName').textContent = 'Assessment ' + q.chapter + ': ' + q.chapName;
+                                document.getElementById('qTypeBadge').textContent = q.correct.length > 1 ? 'SATA' : 'Single';
+                                var resultTag = document.getElementById('resultTag');
+                                resultTag.textContent = ''; resultTag.className = 'result-tag';
+                                document.getElementById('rationaleBar').className = 'rationale-bar';
+                                document.getElementById('rationaleText').textContent = '';
+
+                                var optContainer = document.getElementById('options');
+                                optContainer.innerHTML = '';
+                                var letters = ['A', 'B', 'C', 'D', 'E'];
+                                q.opts.forEach(function (opt, idx) {
+                                        var div = document.createElement('div');
+                                        div.className = 'option'; div.setAttribute('data-idx', idx);
+                                        var letter = document.createElement('div');
+                                        letter.className = 'option-letter'; letter.textContent = letters[idx];
+                                        var text = document.createElement('div'); text.textContent = opt;
+                                        div.appendChild(letter); div.appendChild(text);
+                                        div.onclick = function () { selectOption(idx); };
+                                        optContainer.appendChild(div);
+                                });
+
+                                document.getElementById('selectedCount').textContent = '';
+                                document.getElementById('cancelBtn').className = 'btn btn-cancel';
+                                selectedOptions = []; answered = false;
+                                document.getElementById('prevBtn').disabled = currentQuestion === 0;
+                                document.getElementById('skipBtn').style.display = 'flex';
+                                document.getElementById('skipBtn').disabled = currentQuestion === questions.length - 1;
+                                document.getElementById('nextBtn').textContent = 'Submit';
+                                document.getElementById('nextBtn').disabled = false;
+                        }
+
+                        function selectOption(idx) {
+                                if (answered) return;
+                                var q = questions[currentQuestion];
+                                if (q.correct.length > 1) {
+                                        var pos = selectedOptions.indexOf(idx);
+                                        if (pos === -1) selectedOptions.push(idx); else selectedOptions.splice(pos, 1);
+                                        document.getElementById('selectedCount').textContent = selectedOptions.length + ' option(s) selected';
+                                        var opts = document.querySelectorAll('.option');
+                                        opts.forEach(function (o) { o.className = 'option'; });
+                                        selectedOptions.forEach(function (i) { opts[i].className = 'option selected'; });
+                                        document.getElementById('cancelBtn').className = selectedOptions.length > 0 ? 'btn btn-cancel show' : 'btn btn-cancel';
+                                        document.getElementById('nextBtn').textContent = 'Submit';
+                                } else {
+                                        selectedOptions = [idx];
+                                        submitAnswer();
+                                }
+                        }
+
+                        function cancelSelection() {
+                                selectedOptions = [];
+                                document.querySelectorAll('.option').forEach(function (o) { o.className = 'option'; });
+                                document.getElementById('cancelBtn').className = 'btn btn-cancel';
+                                document.getElementById('selectedCount').textContent = '';
+                                document.getElementById('nextBtn').textContent = 'Submit';
+                        }
+
+                        function submitAnswer() {
+                                if (selectedOptions.length === 0) return;
+                                var q = questions[currentQuestion];
+                                answered = true;
+                                var correct = q.correct;
+                                var isCorrect = selectedOptions.length === correct.length &&
+                                        selectedOptions.every(function (i) { return correct.indexOf(i) !== -1; });
+                                document.querySelectorAll('.option').forEach(function (o) {
+                                        var idx = parseInt(o.getAttribute('data-idx'));
+                                        if (correct.indexOf(idx) !== -1) o.className = 'option correct';
+                                        else if (selectedOptions.indexOf(idx) !== -1) o.className = 'option incorrect';
+                                });
+                                var resultTag = document.getElementById('resultTag');
+                                resultTag.textContent = isCorrect ? '✓ Correct' : '✗ Incorrect';
+                                resultTag.className = 'result-tag ' + (isCorrect ? 'correct' : 'incorrect');
+                                document.getElementById('cancelBtn').className = 'btn btn-cancel';
+                                document.getElementById('skipBtn').style.display = 'none';
+                                document.getElementById('nextBtn').textContent = 'Next →';
+                                if (q.rat) {
+                                        document.getElementById('rationaleText').textContent = q.rat;
+                                        document.getElementById('rationaleBar').className = 'rationale-bar show';
+                                }
+                        }
+
+                        window.nextCard = function () {
+                                if (!answered) { if (selectedOptions.length > 0) submitAnswer(); }
+                                else { if (currentQuestion < questions.length - 1) { currentQuestion++; renderQuestion(); } }
+                        };
+                        window.skipCard = function () {
+                                if (!answered && currentQuestion < questions.length - 1) { currentQuestion++; renderQuestion(); }
+                        };
+                        window.previousCard = function () {
+                                if (currentQuestion > 0) { currentQuestion--; renderQuestion(); }
+                        };
+                        window.randomCard = function () {
+                                currentQuestion = Math.floor(Math.random() * questions.length); renderQuestion();
+                        };
+
+                        window.openAssessmentModal = function () {
+                                var grid = document.getElementById('assessmentGrid');
+                                grid.innerHTML = '';
+                                assessmentsInfo.forEach(function (ch) {
+                                        var card = document.createElement('div');
+                                        card.className = 'as-card';
+                                        card.setAttribute('data-ch', ch.num);
+                                        card.setAttribute('data-name', ch.name.toLowerCase());
+                                        var numEl = document.createElement('div'); numEl.className = 'as-num'; numEl.textContent = ch.num;
+                                        var infoEl = document.createElement('div'); infoEl.className = 'as-info';
+                                        var titleEl = document.createElement('div'); titleEl.className = 'as-title'; titleEl.textContent = ch.name;
+                                        var countEl = document.createElement('div'); countEl.className = 'as-count'; countEl.textContent = ch.count + ' questions';
+                                        infoEl.appendChild(titleEl); infoEl.appendChild(countEl);
+                                        card.appendChild(numEl); card.appendChild(infoEl);
+                                        card.onclick = function () {
+                                                var idx = questions.findIndex(function (q) { return q.chapter === ch.num; });
+                                                if (idx !== -1) { currentQuestion = idx; renderQuestion(); }
+                                                closeAssessmentModal();
+                                        };
+                                        grid.appendChild(card);
+                                });
+                                document.getElementById('chSearch').value = '';
+                                document.getElementById('chapterModal').className = 'modal-overlay open';
+                        };
+                        window.closeAssessmentModal = function () {
+                                document.getElementById('chapterModal').className = 'modal-overlay';
+                        };
+                        window.filterAssessments = function (val) {
+                                var v = val.toLowerCase();
+                                document.querySelectorAll('.as-card').forEach(function (card) {
+                                        var match = card.getAttribute('data-name').includes(v) || card.getAttribute('data-ch').includes(v);
+                                        card.className = match ? 'as-card' : 'as-card hidden';
+                                });
+                        };
+
+                        document.getElementById('chapterModal').addEventListener('click', function (e) {
+                                if (e.target === this) closeAssessmentModal();
+                        });
+                        document.addEventListener('keydown', function (e) {
+                                if (e.key === 'ArrowRight') nextCard();
+                                else if (e.key === 'ArrowLeft') previousCard();
+                                else if (e.key === 'Escape') closeAssessmentModal();
+                                else if (['1', '2', '3', '4'].includes(e.key) && !answered) {
+                                        var idx = parseInt(e.key) - 1;
+                                        if (idx < questions[currentQuestion].opts.length) selectOption(idx);
+                                }
+                                else if (e.key === 'Enter') nextCard();
+                        });
+
+                        renderQuestion();
+                })();
+        </script>
+</body>
+
+</html>
